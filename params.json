@@ -1,0 +1,6 @@
+{
+  "name": "Learning Go Programming",
+  "tagline": "",
+  "body": "# Learning Go Programming\r\nThis is the companion git repository to the Packt Publishing book [Learning Go Programming](https://www.packtpub.com/application-development/learning-go-programming) by Vladimir Vivien.  The repository contains the source code files for all examples discussed in the book.  The intent is to maintain the source code as a living portion of the text.  You can file an issue with letting the author know about a mistake you found in the book or in the source files.  Or, come here to pull (download) updates to the code.",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

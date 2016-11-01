@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Learing Go - Global Currency Service</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Global Currency Service</h2>
+  <p>Enter currency search string: <input id="in">
+	  <button type="button" class="btn btn-primary" onclick="doRequest()">Search</button>
+  </p>            
+  <table id="tbl" class="table table-striped">
+    <thead>
+      <tr>
+		  <th>Code</th>
+		  <th>Name</th>
+		  <th>Number</th>
+		  <th>Country</th>
+      </tr>
+    </thead>
+    <tbody/>
+  </table>
+</div>
+
+<p id="out"/>
+
+<script>
+    var tbl = document.getElementById("tbl");
+	function addRow(code, name, number, country) {
+		var rowCount = tbl.rows.length;
+		var row = tbl.insertRow(rowCount);
+		row.insertCell(0).innerHTML = code;
+		row.insertCell(1).innerHTML = name;
+		row.insertCell(2).innerHTML = number;
+		row.insertCell(3).innerHTML = country;
+	}
+
+	function doRequest() {
+		param = document.getElementById("in").value
+        $.ajax('/currency', {
+            method: 'PUT',
+			contentType: 'application/json',
+			processData: false,
+			data: JSON.stringify({get:param})
+		}).then(
+		function success(currencies) {
+			currs = JSON.parse(currencies)
+			for (i=0; i < currs.length; i++) {
+				addRow(
+					currs[i].currency_code,
+					currs[i].currency_name,
+					currs[i].currency_number,
+					currs[i].currency_country
+				);
+			}
+
+		});
+	}
+</script>
+</body>
+</html>
+
