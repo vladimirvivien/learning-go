@@ -33,7 +33,7 @@ var metalloids = []metalloid{
 
 // finds # of moles
 func moles(mass amu) float64 {
-	return float64(mass) / grams
+	return grams / float64(mass)
 }
 
 // returns # of atoms moles
