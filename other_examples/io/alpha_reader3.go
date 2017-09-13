@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
-	"strings"
+	"os"
 )
 
 // alphaReader is a simple implementation of an io.Reader
@@ -42,7 +42,12 @@ func (a *alphaReader) Read(p []byte) (int, error) {
 
 func main() {
 	// use an io.Reader as source for alphaReader
-	reader := newAlphaReader(strings.NewReader("Hello! It's 9am, where is the sun?"))
+	file, err := os.Open("./alpha_reader2.go")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	reader := newAlphaReader(file)
 	p := make([]byte, 4)
 	for {
 		n, err := reader.Read(p)
