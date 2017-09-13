@@ -1,4 +1,4 @@
-Channels orchestrate mutexes serialize
-Cgo is not Go
-Errors are values
-Don't panic
+Proverb 0 = Channels orchestrate mutexes serialize
+Proverb 1 = Cgo is not Go
+Proverb 2 = Errors are values
+Proverb 3 = Don't panic

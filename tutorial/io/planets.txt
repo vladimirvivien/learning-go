@@ -1,0 +1,5 @@
+Mercury 4879 0 No
+Venus 12104 0 No
+Earth 12756 1 No
+Mars 6792 2 No
+Jupiter 142984 67 Yes
