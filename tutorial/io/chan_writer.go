@@ -32,10 +32,11 @@ func main() {
 	writer := newChanWriter()
 	go func() {
 		defer writer.Close()
-		writer.Write([]byte("Stream"))
+		writer.Write([]byte("Stream "))
 		writer.Write([]byte("me!"))
 	}()
 	for c := range writer.Chan() {
-		fmt.Printf("%c\n", c)
+		fmt.Printf("%c", c)
 	}
+	fmt.Println()
 }

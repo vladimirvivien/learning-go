@@ -1,0 +1,4 @@
+Channels orchestrate mutexes serialize
+Cgo is not Go
+Errors are values
+Don't panic
