@@ -1,4 +1,4 @@
-## The Go source file
+# The Go source file
 It is important to understand the make up of a Go source file.  The following figure highlights the major attributes of a Go source file.
 
 ![Go Source](../go-source.png)
@@ -18,5 +18,8 @@ Go source files can have arbitrary names followed by the `.go` extension.  There
 #### `// Comment`
 Go uses C-style comments which are used by Go tools to generate documentation automatically.
 
-#### Optional semi-colon
-One more thing that is notable in Go sources is the lack of semi-colon.  In idiomatic Go, semi-colons are optional and are always omitted.  However, the Go compiler inserts them during compilation as they are required by Go's formal grammar.   
+## Optional semi-colon
+One more thing that is notable in Go sources is the lack of semi-colon.  In idiomatic Go, semi-colons are optional and are always omitted.  However, the Go compiler inserts them during compilation as they are required by Go's formal grammar.
+
+### Next
+Read the next section to find out how Go [packages](./packages.md).

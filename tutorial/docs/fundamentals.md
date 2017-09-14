@@ -1,7 +1,7 @@
-## Language Fundamentals
+# Language Fundamentals
 This section covers the fundamentals of the Go language including data types, variable declaration, and other language construct that are crucial in understanding the language.
 
-### Variables
+## Variables
 Go is a *strongly typed* language where all variables must have a value and a type.  When a variable is declared, it must receive a type and a value.  The following shows a long form of the declaration where the type is explicitly provided and the value is subsequently given:
 ```go
 package main
@@ -71,7 +71,7 @@ func main() {
 ```
 > Note that operator `:=` only initializes the variable.  Further update of the variable must be done using the `=` operator.
 
-#### The blank identifier `_`	
+### The blank identifier `_`	
 A declared variable must be subsequently used in an expression or a statement or failure to do so will result in a compilation error.  For instance, the following snippet will not compile because variable `b` is declared and not used.
 ```go
 func main() {
@@ -96,7 +96,7 @@ func main() {
 ```
 In the previous example, function `path.Split(path)(dirName,fileName)` returns two values `dirName` and `fileName`.  In the code, however, we discard of the value for `dirName` by binding it to the blank identifier.
  
-### Primitive data types
+## Primitive data types
 Go support several *numeric types*:
 - *Signed* integers: `int8`, `int16`, `int32`, `int64` , and `int`
 - *Unsigned* integers: `uint8`, `uint16`, `uint32`, `uint64` , and `uint`
@@ -119,10 +119,10 @@ count := 1245                	// decimal, int
 avogadro := 6.0221409e+1	 	// float64
 value := "automobile"			// string
 ```
-### Composite types
+## Composite types
 Composite types are used to store sequences of values of primitive types.  Composite literals values are contained within curly-braces preceded by the type as shown below.
 
-#### *Array*
+### *Array*
 Type *array* represents a fixed-size sequenced values numerically indexed.  
 ```
 func main(){
@@ -143,7 +143,7 @@ func main(){
 }
 ```
 
-#### *Slice*
+### *Slice*
 A slice is a dynamically-sized array.  The slice omits its size as part of its type declaration as shown in the snippet below.   Slices can be initialized with a composite literal or with the `make()` built-in function:
 ```
 steps := []string{"SEND", "RCVD", "WAIT"} 	// slice initialized with 3 elements
@@ -182,7 +182,7 @@ func main() {
 ```
 Note that in this example, we assign the index value of the item to the blank identifier, `_`, so that we can ignore it.
 
-#### *Map*
+### *Map*
 A map is a dynamically-sized composite type that stores elements of arbitrary types that are indexes using a values of  type.  A map can be initialized using a composite literal:
 ```
 ratings := map[string][]int{
@@ -212,7 +212,7 @@ func main() {
 	}
 }
 ```
-#### *Struct*
+### *Struct*
 The *struct* type is a composite that stores named elements of diverse types known as fields.  The following example creates variable `truck` as type `struct{year int; make, model string}` and initializes it with a composite literal.
 ```
 func main() {
@@ -230,7 +230,7 @@ func main() {
 ```
 The struct uses the dot notation to access field members of the struct.
 
-### The pointer type
+## The pointer type
 Go supports a type pointer which is a value that may be used to reference the memory address where the data is located. Go uses the `*` operator to designate a type as a pointer of that type.  The followings are examples of declaration of pointer type where `scorePtr` is a pointer to type `float32`:
 ```
 var scorePtr *float32
@@ -267,8 +267,7 @@ func adjust(val *int) {
 }
 ``` 
 
-
-### The function type
+## The function type
 In Go, a function is also a type that can be assigned to a variable or stored for later use.  A function can be *named* or be assigned to a identifier as shown in the following example:
 ```go
 func main() {
@@ -309,7 +308,7 @@ func div(op0, op1 int) (int, error) {
 	return op0 / op1, nil
 }
 ```
-### Methods 
+## Methods 
 Methods are functions that are attached to a type.  Most Go types can receive a function via a special parameter, called a receiver parameter, that associate the function to the type.  The following example shows that type `*car` can receive method `drive()`:
 ```go
 type car struct {
@@ -332,7 +331,7 @@ func main() {
 ```
 So, variable `ford` of type `*car` can invoke function `ford.drive()`.
 
-### Deferring functions and method calls
+## Deferring functions and method calls
 Function (or method) calls can be deferred using the `defer` statement which is called right before returning from the surrounding function.  Deferring function calls is an idiom common in Go to implement lifecycle logic such as clean up logic, closing a network connections, closing channel, deleting unwanted test files, or any other tasks that should always happen when the called function is returning.  
 
 The following uses a defer statement to print a separator right before function `print()` exits.
@@ -375,7 +374,7 @@ func print(body io.ReadCloser) {
 	io.Copy(os.Stdout, body)
 }
 ```
-### Type declaration
+## Type declaration
 Go allows a type declaration to receive an identifier so that the type may be reused by referring to its name.  For instance, type `struct{year int; make, model string}` can be assigned a name `car` so that subsequent variable declarations only needs to use the type name as shown below.
 
 ```go
@@ -406,7 +405,7 @@ func main() {
 	fmt.Println(chevy)
 }
 ```
-### Interfaces 
+## Interfaces 
 Another feature that gets celebrated in Go are interfaces.  An interface in Go is a type that represents a set of zero or more methods.  Any other type that implements that set of methods automatically implements the interface.  For instance, built-in package `io` defines interfaces `io.Reader` and `io.Writer` for IO input and output respectively. 
 ```go
 // io.Reader
@@ -466,3 +465,6 @@ func WriteData(writer io.Writer, data []string) {
 }
 ```
 The previous code uses function `WriteData(writer io.Writer, data []string)` to output string slice `data` to different target including an in-memory buffer `buf` of type `*bytes.Buffer`, standard output `os.Stdout`, and file object `file` of type `*os.File` which are all values that implement `io.Writer`.
+
+### Next
+The next section continues with Go [flow control](./flow_control.md) statements

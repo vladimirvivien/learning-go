@@ -1,7 +1,7 @@
-## Packages
+# Packages
 In Go, a package is the unit of code that can be compiled either as an executable `program` or a reusable code `library`.  Packages are directories in the workspace under `$HOME/go/src`.  A package can consist of one or more source files which are compiled into one logical unit.  The membership of a source to a package is declared in the with the `package` directive (discussed later).  All files in a package must declare the same package name or the compiler will not be happy.  
 
-### Package import path and the default name
+## Package import path and the default name
 The `import path` of a package is the unique directory path of the package in the workspace, relative to path `$HOME/go/src` as shown in the following table:
 
 | Workspace Path | Import Path | Default Name
@@ -28,7 +28,7 @@ func main() {
 }
 ...
 ```
-### Naming your packages
+## Naming your packages
 An accepted practice in Go is to give the package path a unique name to avoid name collisions.  This is specially important if you plan to distribute your code for others to consume.  The most common approach is to include a unique identifier such as a source code repository and username as part of the path.  Others also use a company name or a project name, when naming the package directory.  
 
 |Import path|Qualifier|
@@ -38,7 +38,7 @@ An accepted practice in Go is to give the package path a unique name to avoid na
 |k8s.io/client-go/pkg/api/v1|k8s.io/client-go|
 |gopkg.in/yaml.v1/|gopkg.in|
 
-### A Go program
+## A Go program
 As mentioned earlier,  a program is a package that can be compiled into executable code.  All source files of a program must declare `package main` and at most one source file in the directory must include the special function `main()`.  
 
 For instance, the following shows the layout for a program in directory  `greetings/` :  
@@ -83,7 +83,7 @@ func main() {
 	}
 }
 ```
-#### Compiling and running the program
+### Compiling and running the program
 We can compile the program package, along with its dependencies, using the `go build` command-line tool by specifying the relative path of the package or its *import path*.  For instance, the following will compile the program in package `greetings`:
 ```sh
 $ cd $HOME/go/src/github.com/vladimirvivien/go-tutorial/greetings
@@ -119,7 +119,7 @@ We can also use `go install` which is a tool that compiles the package and its d
 
 > See `go help build` and `go help install` for detail.
  
-### A Go library
+## A Go library
 Libraries are packages that use the same `go` command tools and are compiled into archive files (instead of executable code) that can be reused by other packages.  To demonstrate a library, we will rewrite the previous greeting program.  In this version, we will extract the greeting functionality and place it into library `greetlib` so that it can be imported by other packages:  
 ```sh 
 $HOME/go/src/
@@ -176,7 +176,7 @@ func main() {
 	fmt.Println(greetlib.GreetIn(lang))
 }
 ```
-#### Compiling a library
+### Compiling a library
 Compiling a library is done using the `go build` tool by specifying the package's import path or its relative directory path as was done before.  For instance, the following would compile the `greetlib` package:
 
 ```sh
@@ -196,7 +196,7 @@ $ go install ./greetings2
 
 > See `go help build` and `go help install` for detail.
 
-### Package element visibility
+## Package element visibility
 Go has a simple rule for element visibility when a package is imported from another:
 
 >*Capitalized identifiers are visible to other packages*
@@ -221,7 +221,7 @@ func GreetIn(lang string) string {
 	return greetings["English"]
 }
 ```
-### Remote packages
+## Remote packages
 Go includes the `go get` tool which can retrieve and install packages stored on a remote source control repository server such as Git or Mercurial.  The tool uses the import path to figure out where the file is located on the server.  For instance, the following command will pull and install package `greetings2` from this repository:
 ```
 $ go get github.com/vladimirvivien/go-tutorial/greetings2
@@ -229,3 +229,6 @@ $ go get github.com/vladimirvivien/go-tutorial/greetings2
 Since package `greetings2` imports package `github.com/vladimirvivien/go-tutorial/greetlib`,  `go get` will transitively attempt to resolve, download, and install package `greetlib` if it is not found in the workspace.
 
 > see `go help get` for more detail.
+
+### Next
+Continue to the next section to learn about [Go language fundamentals](./fundamentals.md).
