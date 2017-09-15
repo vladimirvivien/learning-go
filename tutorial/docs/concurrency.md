@@ -115,4 +115,4 @@ func display(done chan bool) {
 ```
 
 ### Next
-The next section shows how to use the [Go streaming IO API](./docs/data_io.md).
+The next section shows how to use the [Go streaming IO API](./data_io.md).

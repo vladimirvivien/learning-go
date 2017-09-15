@@ -82,4 +82,4 @@ The test framework that comes with Go supports many more features including:
 - Debugging / Profiling
 
 ### Next
-See what other APIs are available in Go's [standard library](./docs/stdlib.md).
+See what other APIs are available in Go's [standard library](./stdlib.md).

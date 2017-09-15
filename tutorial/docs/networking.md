@@ -234,4 +234,4 @@ func main() {
 ```
 
 ### Next
-Continue to the next section to learn about [testing](./docs/testing.md) in Go.
+Continue to the next section to learn about [testing](./testing.md) in Go.
