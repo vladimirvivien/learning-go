@@ -74,8 +74,12 @@ func TestAvg(t *testing.T) {
 ```
 The test functions are setup to compare results from the actual functions with known expected values.  Notice that test function `TestAvg()` uses an approach called `table-driven` test where multiple possibilities are tested in one function.
 
-The test framework builtin Go supports many more features including: 
+## Othere features
+The test framework that comes with Go supports many more features including: 
 - HTTP testing
 - Code coverage
 - Test benchmark
 - Debugging / Profiling
+
+### Next
+See what other APIs are available in Go's [standard library](./docs/stdlib.md).

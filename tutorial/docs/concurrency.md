@@ -113,3 +113,6 @@ func display(done chan bool) {
    close(done)  // channel is closed
 }
 ```
+
+### Next
+The next section shows how to use the [Go streaming IO API](./docs/data_io.md).

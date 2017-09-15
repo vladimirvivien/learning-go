@@ -162,3 +162,5 @@ func main() {
 	fmt.Println("proverbs.txt created")
 }
 ```
+### Next
+Continue to the next section to learn about Go [network programming](./docs/networking.md).

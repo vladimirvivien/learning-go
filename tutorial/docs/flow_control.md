@@ -79,3 +79,6 @@ func main(){
     }
 }
 ```
+
+### Next
+Next, let us go beyond fundamentals and learn about [Go concurrency](docs/concurrency.md).

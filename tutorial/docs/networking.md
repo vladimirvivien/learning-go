@@ -232,3 +232,6 @@ func main() {
 	}
 }
 ```
+
+### Next
+Continue to the next section to learn about [testing](./docs/testing.md) in Go.
