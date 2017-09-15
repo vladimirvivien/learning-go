@@ -163,4 +163,4 @@ func main() {
 }
 ```
 ### Next
-Continue to the next section to learn about Go [network programming](./docs/networking.md).
+Continue to the next section to learn about Go [network programming](./networking.md).

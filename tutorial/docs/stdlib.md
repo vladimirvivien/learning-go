@@ -12,3 +12,5 @@ We only scratched the surface with this introduction to Go and its built-in pack
 - Cryptography support for most major algorithms and hash functions
 - Access to OS-level processes, environment info, and signaling
 - And much more
+
+Start over, head back to [TOC](../README.md).
