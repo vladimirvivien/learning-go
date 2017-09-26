@@ -83,5 +83,7 @@ If you feel more comfortable with working with a full IDE, you will be well-serv
 - Visual Studio Code - Support with vscode-go plugin
 - GoClipse - Eclipse based Go IDE
 
+See this [lengthy list of editors and IDEs with Go support](https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins) 
+
 ### Next
 Read on to the next section to find out how to [create your first Go program](./first_program.md).
