@@ -42,11 +42,11 @@ The previous program shows the *long way*	of declaring variables without explici
 The language also offers an expressive syntax for variable declaration, that can feel like dynamic language,  where the type can be inferred and the value can be assigned in one statement as shown below.
 
 ```go
-var name = "Mars"		// inferred as type string
-var desc = "Planet"		// inferred as type string
-var radius = 3396.2		// inferred as type float64
+var name = "Mars"	// inferred as type string
+var desc = "Planet"	// inferred as type string
+var radius = 3396.2	// inferred as type float64
 var mass = 6.4185e23	// inferred as type float64
-var active = true		// inferred as type bool
+var active = true	// inferred as type bool
 ```
 When variables are declared inside a function, the declaration can get even shorter by dropping the `var` keyword as shown in the following example.  This forms combines the declaration and initialization of variable in one step.  Even without the type information, the compiler uses the literal text to infer a type for each variable.  This is one of the most idiomatic version of type declaration that you will encounter.
 
@@ -113,11 +113,11 @@ To represent text Go uses type `string` which stores a sequence of `rune` capabl
 
 Primitive type examples: 
 ```go
-var color uint32 = 0xFEFEFE  	// hex, uint32
-var mod = 0466               	// octal, int
-count := 1245                	// decimal, int
-avogadro := 6.0221409e+1	 	// float64
-value := "automobile"			// string
+var color uint32 = 0xFEFEFE	// hex, uint32
+var mod = 0466			// octal, int
+count := 1245			// decimal, int
+avogadro := 6.0221409e+1	// float64
+value := "automobile"		// string
 ```
 ## Composite types
 Composite types are used to store sequences of values of primitive types.  Composite literals values are contained within curly-braces preceded by the type as shown below.
@@ -146,15 +146,15 @@ func main(){
 ### *Slice*
 A slice is a dynamically-sized array.  The slice omits its size as part of its type declaration as shown in the snippet below.   Slices can be initialized with a composite literal or with the `make()` built-in function:
 ```go
-steps := []string{"SEND", "RCVD", "WAIT"} 	// slice initialized with 3 elements
-fmt.Println(steps[1]) 						// prints "RCVD" 
-steps = append(steps, "PAUSE")				// slice expanded to size 4
-steps[3] = "RESUME"							// updates value at index 4
+steps := []string{"SEND", "RCVD", "WAIT"}	// slice initialized with 3 elements
+fmt.Println(steps[1]) 				// prints "RCVD" 
+steps = append(steps, "PAUSE")			// slice expanded to size 4
+steps[3] = "RESUME"				// updates value at index 4
 
-actions := make([]int, 2)					// initializes a slice of size 2
+actions := make([]int, 2)			// initializes a slice of size 2
 actions[0] = "PRINT"
 actions[1] = "LOG"
-actions = append(actions, "ADD")			// expands slice, size now 3
+actions = append(actions, "ADD")		// expands slice, size now 3
 ```
 Go also supports slice expressions which can be used to create new slices from arrays or other slices.  For instance, slice `summer` is created by slicing existing array `months`
 ```go
