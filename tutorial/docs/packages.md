@@ -130,7 +130,7 @@ $HOME/go/src/
      +-greet.go
 ```
 The source code for the library package is stored in source file `greetlib/lib.go` as shown below:
-```
+```go
 package greetlib
 
 var greetings = map[string]string{
