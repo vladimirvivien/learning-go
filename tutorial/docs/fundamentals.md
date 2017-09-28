@@ -237,9 +237,13 @@ var scorePtr *float32
 ```
 Pointer variables can only be assigned address values of its declared type.  One way to do so in Go is to use the address operator `&` (ampersand) to obtain the address of a variable as shown in the following example:
 ```go
-score := 32
-scorePtr = &score		// pointer assigned address
-*scorePtr = 44			// pointer dereferenced with value
+func main() {
+	score := 32
+	scorePtr := &score    // pointer assigned address
+	fmt.Println(scorePtr) // prints address
+	*scorePtr = 44        // pointer dereferenced with value
+	fmt.Println(score)    // prints updated score
+}
 ```
 While Go only support pass-by-value when calling a function/method, pointers can be used to create a pass-by-reference idiom.  For instance, in the following, variable `score` will not be updated after a call to function `adjust()` because the function receives a copy of the value via parameter `val`:
 ```go
