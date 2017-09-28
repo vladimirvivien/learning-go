@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/vladimirvivien/go-tutorial/greetlib"
+	"github.com/vladimirvivien/learning-go/tutorial/greetlib"
 )
 
 func main() {
