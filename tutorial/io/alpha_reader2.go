@@ -25,19 +25,21 @@ func alpha(r byte) byte {
 }
 
 func (a *alphaReader) Read(p []byte) (int, error) {
-	n, err := a.reader.Read(p)
+	n, err := r.reader.Read(p)
 	if err != nil {
 		return n, err
 	}
-	buf := make([]byte, n)
+	j := 0
 	for i := 0; i < n; i++ {
 		if char := alpha(p[i]); char != 0 {
-			buf[i] = char
+			p[j] = char
+			j += 1
 		}
 	}
-
-	copy(p, buf)
-	return n, nil
+	if j == 0 {
+		return 0, io.EOF
+	}
+	return j, nil
 }
 
 func main() {
