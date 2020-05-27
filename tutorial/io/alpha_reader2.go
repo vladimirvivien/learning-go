@@ -25,7 +25,7 @@ func alpha(r byte) byte {
 }
 
 func (a *alphaReader) Read(p []byte) (int, error) {
-	n, err := r.reader.Read(p)
+	n, err := a.reader.Read(p)
 	if err != nil {
 		return n, err
 	}
