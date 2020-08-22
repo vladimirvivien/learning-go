@@ -1,9 +1,11 @@
-package hello
+package main
 
 import (
 	"fmt"
 	"net/http"
 	"regexp"
+	"os"
+	"log"
 )
 
 var (
@@ -12,8 +14,19 @@ var (
 	exRegex = regexp.MustCompile(`^\/ch\d\d\/.+\.go$`) // regex for examples
 )
 
-func init() {
-	http.HandleFunc("/", mux)
+func main() {
+        http.HandleFunc("/", mux)
+
+        port := os.Getenv("PORT")
+        if port == "" {
+                port = "80"
+                log.Printf("Defaulting to port %s", port)
+        }
+
+        log.Printf("Listening on port %s", port)
+        if err := http.ListenAndServe(":"+port, nil); err != nil {
+                log.Fatal(err)
+        }
 }
 
 func mux(w http.ResponseWriter, r *http.Request) {
